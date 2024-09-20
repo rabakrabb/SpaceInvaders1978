@@ -8,10 +8,10 @@ public class PlayerMissile : MonoBehaviour
     [SerializeField] Rigidbody2D rBody;
     [SerializeField] float missileSpeed = 5.0f;
     [SerializeField] float playerMissile;
+    public System.Action destroyed;
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
-        //rBody.velocity = transform.right * bulletSpeed;
     }
     public void Launch(Vector2 dir)
     {
@@ -20,7 +20,7 @@ public class PlayerMissile : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Deal damage if hit
+        this.destroyed.Invoke();
         Destroy(gameObject);
     }
 }
