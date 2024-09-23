@@ -8,7 +8,10 @@ public class Invaders : MonoBehaviour
     public int rows = 5;
     public int columns = 11;
     public AnimationCurve speed;
+    public PlayerMissile laserPrefab;
+    public float laserAttackRate = 1.0f;
     public int amountKilled {  get; private set; }
+    public int amountAlive => this.totalInvaders - this.amountKilled;
     public int totalInvaders => this.rows * this.columns;
     public float percentKilled => (float)this.amountKilled / (float)this.totalInvaders;
 
@@ -33,6 +36,11 @@ public class Invaders : MonoBehaviour
                 invader.transform.localPosition = position;
             }
         }
+    }
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(LaserAttack), this.laserAttackRate, this.laserAttackRate);
     }
     private void Update()
     {
@@ -65,9 +73,22 @@ public class Invaders : MonoBehaviour
         this.transform.position = position; 
     }
 
+    private void LaserAttack()
+    {
+        foreach (Transform invader in this.transform)
+        {
+            if (!invader.gameObject.activeInHierarchy) {
+                continue;
+            }
+
+            if (Random.value < (1.0f / (float)this.amountAlive)){
+                Instantiate(this.laserPrefab, invader.position, Quaternion.identity);
+                break; }
+            }
+        }
     private void InvaderKilled()
     {
-
+        this.amountKilled++;
     }
 
 }

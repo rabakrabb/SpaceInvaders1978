@@ -8,11 +8,12 @@ public class Healthbar : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Image[] ships; //0, 1, 2
     [SerializeField] PlayerHealth playerHealth;
-   /* private void Start()
+   
+    /*private void Start()
     {
         UpdateHealth();
-    }
-   */
+    }*/
+
     public void UpdateHealth()
     {
         int currentHealth = playerHealth.health;
@@ -29,4 +30,12 @@ public class Healthbar : MonoBehaviour
             }
         }
     }
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer.layerMask == "Invader")
+        {
+
+        }
+    }*/
+
 }

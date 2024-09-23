@@ -36,9 +36,9 @@ public class Invader : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)    
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Missile")) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Missile")) {
             this.killed.Invoke();
             this.gameObject.SetActive(false);
         }

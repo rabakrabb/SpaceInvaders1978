@@ -104,6 +104,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerMissile Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8421559025228812505, guid: 66a2d6f4939606948b792d92784b6480, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8421559025228812505, guid: 66a2d6f4939606948b792d92784b6480, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3727805726279921420, guid: 66a2d6f4939606948b792d92784b6480, type: 3}
     m_RemovedGameObjects: []
@@ -131,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rBody: {fileID: 8412853014887149566}
-  missileSpeed: 5
+  missileSpeed: 13
   playerMissile: 0
 --- !u!50 &8412853014887149566 stripped
 Rigidbody2D:

@@ -11,9 +11,9 @@ TagManager:
   - Missile
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Invader
+  - Player
+  - LaserFromInvader
   - 
   - 
   - 
