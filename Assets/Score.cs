@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
 
     public void AddScore(int scoreAddition)
     {
-
+        score += scoreAddition;
+        scoreText.text = "Score: " + score;
     }
 }

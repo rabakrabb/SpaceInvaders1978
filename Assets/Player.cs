@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] float movementSpeed = 4f;
+// Start is called before the first frame update
+[SerializeField] float movementSpeed = 4f;
     Rigidbody2D rBody;
     void Start()
     {
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
         {
             moveDirection.x -= 1.0f;
         }
+
 
         transform.Translate(moveDirection * movementSpeed * Time.deltaTime);
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Invaders : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class Invaders : MonoBehaviour
     public int columns = 11;
     public AnimationCurve speed;
     public PlayerMissile laserPrefab;
-    public float laserAttackRate = 1.0f;
+    //public float laserAttackRate = 1.0f;
+
     public int amountKilled {  get; private set; }
     public int amountAlive => this.totalInvaders - this.amountKilled;
     public int totalInvaders => this.rows * this.columns;
@@ -40,7 +42,7 @@ public class Invaders : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(LaserAttack), this.laserAttackRate, this.laserAttackRate);
+        //InvokeRepeating(nameof(LaserAttack), this.laserAttackRate, this.laserAttackRate);
     }
     private void Update()
     {
@@ -62,6 +64,7 @@ public class Invaders : MonoBehaviour
                 AdvanceRow();
             }
         }
+
     }
 
     private void AdvanceRow()
@@ -73,7 +76,7 @@ public class Invaders : MonoBehaviour
         this.transform.position = position; 
     }
 
-    private void LaserAttack()
+    /* private void LaserAttack()
     {
         foreach (Transform invader in this.transform)
         {
@@ -85,10 +88,10 @@ public class Invaders : MonoBehaviour
                 Instantiate(this.laserPrefab, invader.position, Quaternion.identity);
                 break; }
             }
-        }
+        }*/
     private void InvaderKilled()
     {
         this.amountKilled++;
     }
-
+    
 }

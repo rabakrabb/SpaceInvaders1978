@@ -9,10 +9,13 @@ public class PlayerMissile : MonoBehaviour
     [SerializeField] Rigidbody2D rBody;
     [SerializeField] float missileSpeed = 13.0f;
     [SerializeField] float playerMissile;
-    public System.Action destroyed;
+    private ScoreManager scoreManager;
+    //public EnemyLaser enemyLaserPrefab;
+    //public System.Action destroyed;
     void Start()
     {
         rBody = GetComponent<Rigidbody2D>();
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
     public void Launch(Vector3 direction)
     {
@@ -24,9 +27,11 @@ public class PlayerMissile : MonoBehaviour
     {
         this.transform.position += this.direction * this.missileSpeed * Time.deltaTime
     }*/
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        this.destroyed.Invoke();
+        //this.destroyed.Invoke();
+        Destroy(collision.gameObject);
+        scoreManager.UpdateScore(10);
         Destroy(gameObject);
     }
 }

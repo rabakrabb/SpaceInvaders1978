@@ -16,7 +16,21 @@ public class PlayerHealth : MonoBehaviour
         healthUpdated.Invoke();
     }
 
-public void SetHealth(int health)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.collider.gameObject);
+            health -= 1;
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+            }
+
+        }
+    }
+
+    public void SetHealth(int health)
     {
 
     }
