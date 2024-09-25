@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameController.stopGame)
+        {
+            return;
+        }
         Vector2 moveDirection = Vector2.zero; //Vector2(0,0)
 
         if (Input.GetKey(KeyCode.D))

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3151020664552270672}
   - component: {fileID: 7319179265698833018}
   - component: {fileID: 2593998840519602423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Laser
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -171,4 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f2003472c1846348a6a9e44dce021b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  missileSpeed: 6

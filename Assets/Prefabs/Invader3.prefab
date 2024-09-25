@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Invader3
       objectReference: {fileID: 0}
+    - target: {fileID: 6581722527604679963, guid: 690a92c8699f3f34188258a62521300d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581722527604679963, guid: 690a92c8699f3f34188258a62521300d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8785553281880634915, guid: 690a92c8699f3f34188258a62521300d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.5
@@ -93,5 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f1ddc89b35ec44eace07862ee7af16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreUpdated:
+    m_PersistentCalls:
+      m_Calls: []
   animationSprites: []
   animationTime: 1

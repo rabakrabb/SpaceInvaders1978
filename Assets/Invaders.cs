@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,8 +10,8 @@ public class Invaders : MonoBehaviour
     public int rows = 5;
     public int columns = 11;
     public AnimationCurve speed;
-    public PlayerMissile laserPrefab;
-    //public float laserAttackRate = 1.0f;
+    public EnemyLaser laserPrefab;
+    public float laserAttackRate = 1.0f;
 
     public int amountKilled {  get; private set; }
     public int amountAlive => this.totalInvaders - this.amountKilled;
@@ -18,8 +19,14 @@ public class Invaders : MonoBehaviour
     public float percentKilled => (float)this.amountKilled / (float)this.totalInvaders;
 
     private Vector3 direction = Vector2.right;
+    private List<Invader> invaders = new List<Invader>();
 
     private void Awake()
+    {
+        CreateInvaders();
+    }
+
+    private void CreateInvaders()
     {
         for (int row = 0; row < this.rows; row++)
         {
@@ -36,16 +43,23 @@ public class Invaders : MonoBehaviour
                 Vector3 position = rowPosition;
                 position.x += col * 1.0f;
                 invader.transform.localPosition = position;
+
+                invaders.Add(invader);
             }
         }
     }
 
     private void Start()
     {
-        //InvokeRepeating(nameof(LaserAttack), this.laserAttackRate, this.laserAttackRate);
+        InvokeRepeating(nameof(LaserAttack), this.laserAttackRate, this.laserAttackRate);
     }
     private void Update()
     {
+        if (GameController.stopGame == true)
+        {
+            //Awake();
+            return;
+        }
         this.transform.position += direction * this.speed.Evaluate(this.percentKilled) * Time.deltaTime;
 
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
@@ -76,7 +90,7 @@ public class Invaders : MonoBehaviour
         this.transform.position = position; 
     }
 
-    /* private void LaserAttack()
+    private void LaserAttack()
     {
         foreach (Transform invader in this.transform)
         {
@@ -88,10 +102,19 @@ public class Invaders : MonoBehaviour
                 Instantiate(this.laserPrefab, invader.position, Quaternion.identity);
                 break; }
             }
-        }*/
+        }
     private void InvaderKilled()
     {
         this.amountKilled++;
     }
-    
+
+    public void ResetInvaders() // Ny metod för att återställa fiender
+    {
+        amountKilled = 0; // Nollställ antalet dödade fiender
+        foreach (Invader invader in invaders)
+        {
+            invader.gameObject.SetActive(true); // Aktivera fienden
+        }
+    }
+
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3605985605263696392}
   - component: {fileID: 8785553281880634915}
   - component: {fileID: 1081834704094931661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Invader2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f1ddc89b35ec44eace07862ee7af16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreUpdated:
+    m_PersistentCalls:
+      m_Calls: []
   animationSprites:
   - {fileID: 21300000, guid: faa33742ca0e31347b439b55fb7cecfd, type: 3}
   - {fileID: 21300000, guid: f71a1796fdbee8e49b6f314e661ba7e1, type: 3}

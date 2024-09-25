@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5677425650584902097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893402264012032605}
+  - component: {fileID: 5704190040456888827}
+  m_Layer: 6
+  m_Name: Invaders
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1893402264012032605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677425650584902097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5, y: 7.5, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5704190040456888827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677425650584902097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0a9bd6bc047c54d89f1762b9dc71cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 2941162272827492249, guid: e2be6a56de371a84b96bb1ef3037d3a5, type: 3}
+  - {fileID: 2941162272827492249, guid: e2be6a56de371a84b96bb1ef3037d3a5, type: 3}
+  - {fileID: 1081834704094931661, guid: 690a92c8699f3f34188258a62521300d, type: 3}
+  - {fileID: 1081834704094931661, guid: 690a92c8699f3f34188258a62521300d, type: 3}
+  - {fileID: 7136868116388220219, guid: a982c0b47e8b09849a97fb2e453c1ea0, type: 3}
+  rows: 5
+  columns: 11
+  speed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.25
+      inSlope: -0.123988174
+      outSlope: -0.123988174
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.37419423
+    - serializedVersion: 3
+      time: 1
+      value: 8
+      inSlope: 19.608557
+      outSlope: 19.608557
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.04695922
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  laserPrefab: {fileID: 6808781117023274582, guid: 22a5b0b47ca9cbf4196853a290849328, type: 3}
+  laserAttackRate: 1
