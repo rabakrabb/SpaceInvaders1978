@@ -25,10 +25,13 @@ public class EnemyLaser : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(gameObject);
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(1);
-            GameObject.FindWithTag("Controller").GetComponent<GameController>().Reset();
+
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(1);
+                Destroy(gameObject);
+            }
         }
         if (collision.CompareTag("Meteor"))
         {

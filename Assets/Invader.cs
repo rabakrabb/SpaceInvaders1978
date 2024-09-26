@@ -15,40 +15,65 @@ public class Invader : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private int animationFrame;
+    [SerializeField] GameObject player;
+    public PlayerHealth playerHealth;
 
-        private void Awake()
+    private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
     {
-        InvokeRepeating(nameof(AnimateSprite), this.animationTime, this.animationTime);
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth == null)
+            {
+                Debug.LogError("PlayerHealth-komponenten saknas på spelaren!");
+            }
+        }
     }
 
     private void AnimateSprite()
     {
+        if (animationSprites.Length == 0) return;
+        
         animationFrame++;
 
-        if (animationFrame >= this.animationSprites.Length)
+        if (animationFrame >= animationSprites.Length)
         {
             animationFrame = 0;
         }
 
-        spriteRenderer.sprite = this.animationSprites[animationFrame];
+        spriteRenderer.sprite = animationSprites[animationFrame];
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Missile")) {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Missile"))
+        {
             this.ScoreUpdated.Invoke();
             this.killed.Invoke();
             this.gameObject.SetActive(false);
         }
-        /*if (other.gameObject.layer == LayerMask.NameToLayer("Missile"))
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Planet"))
         {
-            ScoreUpdated.Invoke();
-        }*/
+            Debug.Log("Invader har nått planeten!");
+
+            if (playerHealth != null)
+            {
+                Debug.Log("PlayerHealth komponent hittad!");
+                playerHealth.TakeDamage(1);
+                Destroy(gameObject);  // Bekräfta att invadern förstörs
+                Debug.Log("Invader förstörd efter att ha nått planeten!");
+            }
+            else
+            {
+                Debug.Log("PlayerHealth komponent saknas på planeten!");
+            }
+        }
     }
 }

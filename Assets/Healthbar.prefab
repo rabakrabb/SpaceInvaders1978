@@ -97,7 +97,7 @@ MonoBehaviour:
   - {fileID: 6181759692650251400}
   - {fileID: 1510486325316941857}
   - {fileID: 2242349365961656500}
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 2514544418027733438, guid: dd558898e8bfa5143b49a13eb48e831e, type: 3}
 --- !u!1 &3142201149763890357
 GameObject:
   m_ObjectHideFlags: 0

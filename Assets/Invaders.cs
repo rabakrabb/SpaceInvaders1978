@@ -28,6 +28,7 @@ public class Invaders : MonoBehaviour
 
     private void CreateInvaders()
     {
+        invaders.Clear();
         for (int row = 0; row < this.rows; row++)
         {
             float width = 2.0f * (this.columns - 1);
@@ -108,13 +109,15 @@ public class Invaders : MonoBehaviour
         this.amountKilled++;
     }
 
-    public void ResetInvaders() // Ny metod för att återställa fiender
+    public void ResetInvaders()
     {
-        amountKilled = 0; // Nollställ antalet dödade fiender
-        foreach (Invader invader in invaders)
+        amountKilled = 0; 
+        CreateInvaders();
+
+        /*foreach (Invader invader in invaders)
         {
             invader.gameObject.SetActive(true); // Aktivera fienden
-        }
+        }*/
     }
 
 }

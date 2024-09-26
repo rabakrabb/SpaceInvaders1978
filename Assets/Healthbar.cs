@@ -9,14 +9,15 @@ public class Healthbar : MonoBehaviour
     [SerializeField] Image[] ships; //0, 1, 2
     [SerializeField] PlayerHealth playerHealth;
 
-    /* private void Start()
+    private void Start()
     {
         UpdateHealth();
     }
-    */
+    
     public void UpdateHealth()
     {
         int currentHealth = playerHealth.health;
+
         for (int i = 0; i < ships.Length; i++)
         {
             Image ship = ships[i];
