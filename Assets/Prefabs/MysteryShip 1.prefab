@@ -174,4 +174,4 @@ MonoBehaviour:
   speed: 8
   moveDirection: 1
   lifespan: 4
-  scoreManager: {fileID: 5395357062859420601, guid: 73206f66c462de743a3e29b05b13080f, type: 3}
+  scoreManager: {fileID: 0}

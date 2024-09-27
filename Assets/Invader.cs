@@ -16,7 +16,6 @@ public class Invader : MonoBehaviour
 
     private int animationFrame;
     [SerializeField] GameObject player;
-    public PlayerHealth playerHealth;
 
     private void Awake()
     {
@@ -25,14 +24,7 @@ public class Invader : MonoBehaviour
 
     private void Start()
     {
-        if (player != null)
-        {
-            playerHealth = player.GetComponent<PlayerHealth>();
-            if (playerHealth == null)
-            {
-                Debug.LogError("PlayerHealth-komponenten saknas på spelaren!");
-            }
-        }
+
     }
 
     private void AnimateSprite()
@@ -62,7 +54,8 @@ public class Invader : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Planet"))
         {
             Debug.Log("Invader har nått planeten!");
-
+            PlayerHealth playerHealth = GameObject.FindObjectOfType<PlayerHealth>();
+            
             if (playerHealth != null)
             {
                 Debug.Log("PlayerHealth komponent hittad!");

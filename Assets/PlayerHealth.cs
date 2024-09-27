@@ -5,10 +5,12 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] UnityEvent playerDied;
     [SerializeField] Healthbar healthbar;
     public int health = 3;
     private GameController gameController;
     private bool isDamaged = false;
+    public GameObject mainMenuCanvas;
 
     private void Start()
     {
@@ -27,8 +29,12 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            gameController.Reset();
+            playerDied.Invoke();
+            //gameController.Reset();
+            //mainMenuCanvas.SetActive(true);
+            gameController.GameOver();
             Destroy(gameObject);
+
         }
 
         

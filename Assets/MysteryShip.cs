@@ -7,11 +7,12 @@ public class MysteryShip : MonoBehaviour
     public float speed = 8f;
     public float moveDirection = 1f;
     public float lifespan = 4f;
-    [SerializeField] private ScoreManager scoreManager;
+    private ScoreManager scoreManager;
 
     private void Start()
     {
         StartCoroutine(DestroyAfterTime());
+        scoreManager = GameObject.FindObjectOfType<ScoreManager>();
     }
 
     private void Update()
